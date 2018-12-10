@@ -12,7 +12,7 @@ image_cols = int(512/2) #we will undersample our training 2D images later (for m
 
 
 def create_train_data():
-    train_data_path = os.path.join(data_path, 'ircad-dataset')
+    train_data_path = os.path.join(data_path, 'train')
     images = os.listdir(train_data_path)
 
     imgs_train=[]  #training images
