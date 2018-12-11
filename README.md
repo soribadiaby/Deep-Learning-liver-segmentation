@@ -35,4 +35,4 @@ As metric we will use the <a href='https://en.wikipedia.org/wiki/S%C3%B8rensen%E
 <img src="img/segmentation-example1.png"></img>
 
 <p>The evolution of the Dice coef for 20 epochs</p>
-<img src='dice-20epochs-example.png'></img>
+<img src="img/dice-20epochs-example.png"></img>
