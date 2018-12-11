@@ -11,7 +11,7 @@ This dataset consists of 20 medical examinations in 3D, we have the source image
 <p>We will train a U-net architecture, a fully convolutional network. The principle of this architecture is to add to a usual contracting network, layers with upsampling operators instead of pooling. This allow the network to learn context (contracting path), then localization (expansive path). Context information is propagated to higher resolution layers thanks to skip-connexions. So we have images of the same size as input</p>
 
 
-<img src="img/u-net-architecture.png"></img>
+<p align="center"><img src="img/u-net-architecture.png" style></img></p>
 
 
 <p>in the data.py script, we perform axial cuts of our 3D images. So 256x256 images are input to the network</p>
@@ -32,7 +32,7 @@ As metric we will use the <a href='https://en.wikipedia.org/wiki/S%C3%B8rensen%E
  
  
 <p>Finally we get this kind of predictions for a particular cut (thanks to the mark_boundaries function that you can find in the notebook), we can observe the liver is delimited in yellow</p>
-<img src="img/segmentation-example1.png"></img>
+<p align="center"><img src="img/segmentation-example1.png"></img></p>
 
-<p>The evolution of the Dice coef for 20 epochs</p>
-<img src="img/dice-20epochs-example.png"></img>
+<p>The evolution of the Dice coef for 20 epochs, this plot shows that we have consistent results and a test Dice coef reaching almost 0.87</p>
+<p align="center"><img src="img/dice-20epochs-example.png"></img></p>
