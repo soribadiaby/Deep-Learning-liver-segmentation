@@ -32,7 +32,7 @@ As metric we will use the <a href='https://en.wikipedia.org/wiki/S%C3%B8rensen%E
  
  
 <p>Finally we get this kind of predictions (thanks to the mark_boundaries function that you can find in the notebook), we can observe the liver is delimited in yellow</p>
-<img src='lexemple'>
+<img src="img/segmentation-example1"></img>
 
 <p>The evolution of the Dice coef</p>
-<img src='lecoef'>
+<img src='dice-20epochs-example'></img>
