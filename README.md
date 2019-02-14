@@ -21,8 +21,10 @@ This dataset consists of 20 medical examinations in 3D, we have the source image
 As metric we will use the <a href='https://en.wikipedia.org/wiki/S%C3%B8rensen%E2%80%93Dice_coefficient'>Dice coefficient</a> (which is quite similar to the Jaccard coefficient)
 
 ## How it works
-<ol><li>First download the data whose link has been given previously</li> 
-<li>Then separate these data in two sets (train and test, typically we use 13 samples for the train set and 7 for the test set) and put them in the corresponding directories that you can find in the 'raw' folder</li>
+<ol><li>First download the data whose link has been given previously</li>
+<li>Create a 'raw' folder
+<li>In the 'raw' folder, create a 'test' folder, and a 'train' folder
+<li>Then separate the data in two sets (train and test, typically we use 13 samples for the train set and 7 for the test set) and put them in the corresponding directories that you can find in the 'raw' folder</li>
 <li>Run data.py , this will save the train and test data in npy format</li>
 <li>Finally launch the notebook, you can observe a curve of the Dice coef according to the number of epochs and visualize your predictions in the folder 'preds'</li>
  </ol>
