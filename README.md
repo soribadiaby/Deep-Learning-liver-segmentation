@@ -4,7 +4,7 @@
  </p>
 
 ## Data
-The data to be used are available in NifTi format <a href='https://www.dropbox.com/s/hx3dehfixjdifvu/ELU-502-ircad-dataset.zip?dl=0'>here</a>. 
+The data to be used are available in NifTi format <a href=''>here</a>. 
 This dataset consists of 20 medical examinations in 3D, we have the source image as well as a mask of segmentation of the liver for each of these examinations. We will use the nibabel library (http://nipy.org/nibabel/) to read associated images and masks.
 
 ## Model
