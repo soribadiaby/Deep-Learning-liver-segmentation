@@ -95,8 +95,8 @@ def create_test_data():
 
 def load_test_data():
     imgst = np.load('imgs_test.npy')
-    imgs_id = np.load('imgs_id_test.npy')
-    return [imgst, imgs_id]
+    imgs_maskt = np.load('imgsliv_test.npy')
+    return imgst, imgs_maskt
 
 if __name__ == '__main__':
     create_train_data()
