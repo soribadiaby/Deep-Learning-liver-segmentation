@@ -14,7 +14,7 @@ def create_train_data():
     images = os.listdir(train_data_path)
     #training images
     imgs_train=[] 
-    #training masks (corresponding to liver)
+    #training masks (corresponding to the liver)
     imgsliv_train=[] 
     print('-'*30)
     print('Creating training images...')
