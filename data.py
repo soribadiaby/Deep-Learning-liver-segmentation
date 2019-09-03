@@ -1,22 +1,21 @@
-from __future__ import print_function
-
 import os
 import numpy as np
 import nibabel
-from skimage.io import imsave, imread
+
 
 data_path = 'raw/'
-
+#we will undersample our training 2D images later (for memory and speed)
 image_rows = int(512/2)
-image_cols = int(512/2) #we will undersample our training 2D images later (for memory and speed)
+image_cols = int(512/2) 
 
 
 def create_train_data():
     train_data_path = os.path.join(data_path, 'train')
     images = os.listdir(train_data_path)
-
-    imgs_train=[]  #training images
-    imgsliv_train=[] #training masks (corresponding to liver)
+    #training images
+    imgs_train=[] 
+    #training masks (corresponding to liver)
+    imgsliv_train=[] 
     print('-'*30)
     print('Creating training images...')
     print('-'*30)
@@ -24,23 +23,33 @@ def create_train_data():
     b=[]
     for k in range(len(images)):
         if k%2==0:
-            a.append(np.sort(images)[k]) #file names corresponding to training masks
+            #file names corresponding to training masks
+            a.append(np.sort(images)[k]) 
         else:
-            b.append(np.sort(images)[k]) #file names corresponding to training images
+            #file names corresponding to training images
+            b.append(np.sort(images)[k]) 
         
     for liver,orig in zip(a,b):
-        imgl=nibabel.load(os.path.join(train_data_path,liver)) #we load 3D training mask
-        imgo=nibabel.load(os.path.join(train_data_path,orig)) #we load 3D training image
+        #we load 3D training mask
+        imgl=nibabel.load(os.path.join(train_data_path,liver))
+        #we load 3D training image
+        imgo=nibabel.load(os.path.join(train_data_path,orig)) 
         for k in range(imgl.shape[2]):
-            dimgl=np.array(imgl.get_data()[::2,::2,k]) #axial cuts are made along the z axis with undersampling
+            #axial cuts are made along the z axis with undersampling
+            dimgl=np.array(imgl.get_data()[::2,::2,k]) 
             dimgo=np.array(imgo.get_data()[::2,::2,k])
-            if len(np.unique(dimgl))!=1: #we only recover the 2D sections containing the liver
+            #we only recover the 2D sections containing the liver
+            if len(np.unique(dimgl))!=1: 
                 imgsliv_train.append(dimgl)
                 imgs_train.append(dimgo)
             
                 
-    imgs = np.ndarray((len(imgs_train), image_rows, image_cols), dtype=np.uint8)
-    imgs_mask = np.ndarray((len(imgsliv_train), image_rows, image_cols), dtype=np.uint8)
+    imgs = np.ndarray(
+            (len(imgs_train), image_rows, image_cols), dtype=np.uint8
+            )
+    imgs_mask = np.ndarray(
+            (len(imgsliv_train), image_rows, image_cols), dtype=np.uint8
+            )
     for index,img in enumerate(imgs_train):
         imgs[index,:,:]=img
     for index,img in enumerate(imgsliv_train):
@@ -80,8 +89,12 @@ def create_test_data():
                 
    
     
-    imgst= np.ndarray((len(imgs_test), image_rows, image_cols), dtype=np.uint8)
-    imgs_maskt= np.ndarray((len(imgsliv_test), image_rows, image_cols), dtype=np.uint8)
+    imgst= np.ndarray(
+            (len(imgs_test), image_rows, image_cols), dtype=np.uint8
+            )
+    imgs_maskt= np.ndarray(
+            (len(imgsliv_test), image_rows, image_cols), dtype=np.uint8
+            )
     for index,img in enumerate(imgs_test):
         imgst[index,:,:]=img
     for index,img in enumerate(imgsliv_test):
