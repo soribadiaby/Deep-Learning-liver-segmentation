@@ -1,14 +1,14 @@
 # Deep-Learning-liver-segmentation-project
  <em>Final project of the Deep Learning course followed at <a href='https://www.imt-atlantique.fr/en'>IMT Atlantique</a>.</em></br></br>
-<p>The code of this project is inspired by that of <a href='https://github.com/jocicmarko/ultrasound-nerve-segmentation'> this repository</a>, a tutorial for a kaggle competition about ultrasound image nerve segmentation. The goal of this project is to adapt the code to the segmentation of liver images as described in this article https://arxiv.org/pdf/1702.05970.pdf.
+<p>The code of this project is inspired by that of <a href='https://github.com/jocicmarko/ultrasound-nerve-segmentation'> this repository</a>, a tutorial for a kaggle competition about ultrasound image nerve segmentation. In this project we apply the method to the segmentation of liver images as described in this article https://arxiv.org/pdf/1702.05970.pdf.
  </p>
 
 ## Data
-The data to be used are available in NifTi format <a href='https://www.dropbox.com/s/8h2avwtk8cfzl49/ircad-dataset.zip?dl=0'>here</a>. 
-This dataset consists of 20 medical examinations in 3D, we have the source image as well as a mask of segmentation of the liver for each of these examinations. We will use the nibabel library (http://nipy.org/nibabel/) to read associated images and masks.
+The data is available in NifTi format <a href='https://www.dropbox.com/s/8h2avwtk8cfzl49/ircad-dataset.zip?dl=0'>here</a>. 
+This dataset consists of 20 medical examinations in 3D, we have the source image as well as a mask of segmentation of the liver for each of these examinations. We use the nibabel library (http://nipy.org/nibabel/) to read associated images and masks.
 
 ## Model
-<p>We will train a U-net architecture, a fully convolutional network. The principle of this architecture is to add to a usual contracting network, layers with upsampling operators instead of pooling. This allow the network to learn context (contracting path), then localization (expansive path). Context information is propagated to higher resolution layers thanks to skip-connexions. So we have images of the same size as input</p>
+<p>We train a U-net architecture, a fully convolutional network. The principle of this architecture is to add to a usual contracting network, layers with upsampling operators instead of pooling. This allow the network to learn context (contracting path), then localization (expansive path). Context information is propagated to higher resolution layers thanks to skip-connexions. So we have images of the same size as input</p>
 
 
 <p align="center"><img src="img/u-net-architecture.png" style></img></p>
@@ -18,7 +18,7 @@ This dataset consists of 20 medical examinations in 3D, we have the source image
 
 ## Evaluation
 
-As metric we will use the <a href='https://en.wikipedia.org/wiki/S%C3%B8rensen%E2%80%93Dice_coefficient'>Dice coefficient</a> (which is quite similar to the Jaccard coefficient)
+As metric we use the <a href='https://en.wikipedia.org/wiki/S%C3%B8rensen%E2%80%93Dice_coefficient'>Dice coefficient</a> (which is quite similar to the Jaccard coefficient)
 
 ## How it works
 <ol><li>First download the data whose link has been given previously</li>
