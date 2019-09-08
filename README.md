@@ -1,5 +1,6 @@
 # Liver segmentation project
  <em>Final project of the Deep Learning course followed at <a href='https://www.imt-atlantique.fr/en'>IMT Atlantique</a>.</em></br></br>
+<p>Purpose: the objective is to automatically delineate liver on patient scans by computer vision</p>
 <p>The code of this project is inspired by that of <a href='https://github.com/jocicmarko/ultrasound-nerve-segmentation'> this repository</a>, a tutorial for a kaggle competition about ultrasound image nerve segmentation. In this project we apply the method to the segmentation of liver images as described in this research paper https://arxiv.org/pdf/1702.05970.pdf.
  </p>
 
