@@ -42,4 +42,4 @@ As metric we use the <a href='https://en.wikipedia.org/wiki/S%C3%B8rensen%E2%80%
 
 ## Acknowledgments
 
-<a href='https://github.com/jocicmarko/ultrasound-nerve-segmentation'>Ultrasound nerve segmentation</a>
+* <a href='https://github.com/jocicmarko/ultrasound-nerve-segmentation'>Ultrasound nerve segmentation</a>
