@@ -1,7 +1,7 @@
 # Liver segmentation project
 <p>Purpose : the objective is to automatically delineate liver on patient scans by computer vision. The method used is from the research paper <a href="https://arxiv.org/pdf/1505.04597.pdf">"U-Net: Convolutional Networks for Biomedical
 Image Segmentation"</a></p>
-<p>The code of this project is inspired by that of <a href='https://github.com/jocicmarko/ultrasound-nerve-segmentation'> this repository</a>, a tutorial for a kaggle competition about ultrasound image nerve segmentation. In this project we apply the method to the segmentation of liver images as described in this research paper https://arxiv.org/pdf/1702.05970.pdf.
+<p>In this project we apply the method to the segmentation of liver images as described in this research paper https://arxiv.org/pdf/1702.05970.pdf.
  </p>
 
 ## Data
@@ -39,3 +39,7 @@ As metric we use the <a href='https://en.wikipedia.org/wiki/S%C3%B8rensen%E2%80%
 
 <p>The evolution of the Dice coef for 20 epochs, this plot shows that we have consistent results and a test Dice coef reaching almost 0.87</p>
 <p align="center"><img src="img/dice-20epochs-example.png"></img></p>
+
+## Acknowledgments
+
+<a href='https://github.com/jocicmarko/ultrasound-nerve-segmentation'>Ultrasound nerve segmentation</a>
