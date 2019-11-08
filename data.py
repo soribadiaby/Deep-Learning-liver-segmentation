@@ -15,27 +15,27 @@ def create_train_data():
     train_data_path = os.path.join(data_path, 'train')
     images = os.listdir(train_data_path)
     #training images
-    imgs_train=[] 
+    imgs_train = [] 
     #training masks (corresponding to the liver)
-    masks_train=[]    
+    masks_train = []    
     #file names corresponding to training masks
-    training_masks=images[::2]
+    training_masks = images[::2]
     #file names corresponding to training images
-    training_images=images[1::2] 
+    training_images = images[1::2] 
         
     for liver, orig in zip(training_masks, training_images):
         #we load 3D training mask (shape=(512,512,129))
-        training_mask=nibabel.load(os.path.join(train_data_path,liver))
+        training_mask = nibabel.load(os.path.join(train_data_path, liver))
         #we load 3D training image
-        training_image=nibabel.load(os.path.join(train_data_path,orig)) 
+        training_image = nibabel.load(os.path.join(train_data_path, orig)) 
         
         for k in range(training_mask.shape[2]):
             #axial cuts are made along the z axis with undersampling
-            mask_2d=np.array(training_mask.get_data()[::2,::2,k]) 
-            image_2d=np.array(training_image.get_data()[::2,::2,k])
+            mask_2d = np.array(training_mask.get_data()[::2, ::2, k]) 
+            image_2d = np.array(training_image.get_data()[::2, ::2, k])
             #we only recover the 2D sections containing the liver
             #if mask_2d contains only 0, it means that there is no liver
-            if len(np.unique(mask_2d))!=1:
+            if len(np.unique(mask_2d)) != 1:
                 masks_train.append(mask_2d)
                 imgs_train.append(image_2d)
                     
@@ -45,10 +45,12 @@ def create_train_data():
     imgs_mask = np.ndarray(
             (len(masks_train), image_rows, image_cols), dtype=np.uint8
             )
-    for index,img in enumerate(imgs_train):
-        imgs[index,:,:]=img
-    for index,img in enumerate(masks_train):
-        imgs_mask[index,:,:]=img
+    
+    for index, img in enumerate(imgs_train):
+        imgs[index, :, :] = img
+        
+    for index, img in enumerate(masks_train):
+        imgs_mask[index, :, :] = img
 
     np.save('imgs_train.npy', imgs)
     np.save('masks_train.npy', imgs_mask)
@@ -67,32 +69,34 @@ def create_test_data():
     print('-'*30)
     test_data_path = os.path.join(data_path, 'test')
     images = os.listdir(test_data_path)   
-    imgs_test=[]
-    masks_test=[]
+    imgs_test = []
+    masks_test = []
     
     for image_name in images:
         print(image_name)
-        img=nibabel.load(os.path.join(test_data_path,image_name))
+        img = nibabel.load(os.path.join(test_data_path, image_name))
         print(img.shape)
+        
         for k in range(img.shape[2]):  
-            img_2d=np.array(img.get_data()[::2,::2,k])
+            img_2d = np.array(img.get_data()[::2, ::2, k])
+            
             if 'liver' in image_name:
                 masks_test.append(img_2d)
             
             elif 'orig' in image_name:
                 imgs_test.append(img_2d)
-                
-      
+                      
     imgst = np.ndarray(
             (len(imgs_test), image_rows, image_cols), dtype=np.uint8
             )
     imgs_maskt = np.ndarray(
             (len(masks_test), image_rows, image_cols), dtype=np.uint8
             )
-    for index,img in enumerate(imgs_test):
-        imgst[index,:,:]=img
-    for index,img in enumerate(masks_test):
-        imgs_maskt[index,:,:]=img
+    for index, img in enumerate(imgs_test):
+        imgst[index, :, :] = img
+        
+    for index, img in enumerate(masks_test):
+        imgs_maskt[index, :, :] = img
 
     np.save('imgs_test.npy', imgst)
     np.save('masks_test.npy', imgs_maskt)
