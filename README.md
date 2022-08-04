@@ -34,7 +34,7 @@ As metric we use the <a href='https://en.wikipedia.org/wiki/S%C3%B8rensen%E2%80%
  ## Some results
  
  
-<p>Finally we get the predictions for a particular cut (you can reproduce this with the notebook), we delineate the liver with a yellow marker</p>
+<p>Finally we get the predictions for a particular cut (delineated in yellow)</p>
 <p align="center"><img src="img/segmentation-example1.png"></img></p>
 
 <p>The evolution of the Dice coef for 20 epochs, this plot shows consistent results and a test Dice coef reaching almost 0.87</p>
